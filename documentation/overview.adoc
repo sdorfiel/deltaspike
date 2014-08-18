@@ -1,5 +1,5 @@
 == Overview of DeltaSpike
-Apache DeltaSpike supports the development of portable CDI extensions that provide useful features for Java applications that are not provided out-of-the-box by the CDI specification (this includes security and JPA). CDI extensions created by the DeltaSpike community are packaged as modules.
+Apache DeltaSpike supports the development of portable Contexts and Dependency Injection (CDI) extensions that provide useful features for Java applications that are not provided out-of-the-box by the CDI specification (this includes security and JPA). CDI extensions created by the DeltaSpike community are packaged as modules.
 
 Apache DeltaSpike is a toolbox for CDI.
 
@@ -11,13 +11,22 @@ The goal of Apache DeltaSpike is to provide useful classes to:
 * manage messages and configurations
 
 === Background: Portable CDI Extensions
-Add text
+Portable CDI extensions are mechanisms for injecting code into an existing CDI container, allowing for integration with different technologies. Extensions can be used with any spec-compliant CDI implementation. Drop CDI extension jar files into a runtime to integrate third party APIs with CDI or to improve existing JavaEE APIs. The portable CDI extension SPI (Service Provider Interface) allows the user to define additional beans, scopes, stereotypes, interceptors and decorators. 
 
 === About DeltaSpike
-Add text
+DeltaSpike is a project consisting of a series of modules used for injecting additional features into Java applications. It provides a method of integrating custom and third party code to existing projects. Each module contains a set of CDI extensions created by the DeltaSpike community. Adding these modules extends 
+the Java capabilties of a project and allows for custom development.
 
 === Features of DeltaSpike
-Add text
+DeltaSpike has the following features:
+
+* typesafe dependency injection mechanisms for selecting  dependencies at either development or deployment time
+* support for Java EE modularity and the Java EE component architecture
+* integration with the Unified Expression Language (EL), allowing any contextual object to be used directly within a JSF or JSP page
+* the ability to customize injected objects and associate interceptors to them
+* event notification
+* a web conversation context in addition to the three standard web contexts defined by the Java Servlets specification
+* an SPI allowing portable extensions to integrate cleanly with the container
 
 === Use Cases of DeltaSpike
 Add text
