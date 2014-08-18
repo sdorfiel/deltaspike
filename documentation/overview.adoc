@@ -1,4 +1,14 @@
 == Overview of DeltaSpike
+Apache DeltaSpike supports the development of portable CDI extensions that provide useful features for Java applications that are not provided out-of-the-box by the CDI specification (this includes security and JPA). CDI extensions created by the DeltaSpike community are packaged as modules.
+
+Apache DeltaSpike is a toolbox for CDI.
+
+The goal of Apache DeltaSpike is to provide useful classes to:
+
+* boot CDI containers (Weld, OpenWebbeans, OpenEJB) for Java SE
+* stage projects
+* provide new scopes (Window Scope, for instance)
+* manage messages and configurations
 
 === Background: Portable CDI Extensions
 Add text
