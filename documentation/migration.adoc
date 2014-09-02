@@ -1,0 +1,19 @@
+== Apache MyFaces CODI to DeltaSpike
+Users of Apache MyFaces CODI can migrate their existing projects to DeltaSpike. This provides the projects with Seam capabilities, custom values for annotation attributes, and greater flexibility when using ConfiguredValueResolver.
+
+NEED INFO
+
+What exactly has changed? How does a user add their existing CODI projects to DeltaSpike? What commands does the user have to run? Do they simply add DeltaSpike dependencies to their existing project's pom.xml file to migrate it?
+
+== JBoss Seam2 to DeltaSpike
+
+NEED INFO
+
+Is this still relevant? 
+
+
+== JBoss Seam3 to DeltaSpike
+
+NEED INFO
+
+Is this still relevant? 
