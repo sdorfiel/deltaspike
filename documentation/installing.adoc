@@ -1,0 +1,97 @@
+== System Requirements
+Latest versions of Java EE and Java SE
+Arquillian CDI container
+Apache OpenWebBeans (OWB) or JBoss Weld reference implementations
+
+== Using DeltaSpike with Maven
+VERIFY
+Download the full DeltaSpike distribution zip file from https://deltaspike.apache.org/download.html and extract it.
+
+On the command line, navigate to the directory and type this command to build DeltaSpike with the JBoss Weld reference implementation:
+----
+mvn clean install -PWeld
+----
+
+Alternatively, to build DeltaSpike with the OWB reference implementation, type this command:
+----
+mvn clean install -POWB
+----
+
+== Using DeltaSpike without Maven
+VERIFY
+To use DeltaSpike without Maven you must obtain the source file.
+
+Download the DeltaSpike source distribution zip file from https://deltaspike.apache.org/download.html and extract it. The DeltaSpike source files must be added to the source code of a CDI project.
+
+For WAR projects, copy the source files into the WEB-INF/lib directory of the project. 
+
+For EAR projects, copy the source files into the EAR/lib directory of the project and add <library-directory>lib</library-directory> to META-INF/application.xml.
+
+
+== Adding a CDI Container
+VERIFY
+In a text editor, open the PROJECT_ROOT/pom.xml file. 
+
+To add Apache OpenWebBeans, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.openwebbeans</groupId>
+    <artifactId>openwebbeans-impl</artifactId>
+    <version>${owb.version}</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.openwebbeans</groupId>
+    <artifactId>openwebbeans-spi</artifactId>
+    <version>${owb.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-owb</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add JBoss Weld, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-weld</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.jboss.weld.se</groupId>
+    <artifactId>weld-se</artifactId>
+    <version>${weld.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add an embedded servlet runtime, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-servlet</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+----
+
+Save the pom.xml file and exit.
+
+On the command line, navigate to the directory containing the pom.xml file. Type this command to download the new dependencies to the Maven repository:
+----
+mvn clean install
+----
+
+== Adding a Server or Servlet Container CDI Implementation
+NEED INFO
