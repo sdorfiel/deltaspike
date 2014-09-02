@@ -1,9 +1,6 @@
 == Examples
 There are a number of examples available that demonstrate DeltaSpike capabilities. These come packaged with the distribution-full-version.zip file which can be downloaded from https://deltaspike.apache.org/download.html. Each example showcases a different DeltaSpike feature and explores the mechanics of CDI implementation. Users can observe these examples to view DeltaSpike in action and learn how to inject these capabilities into other projects.
 
-
-== Examples
-
 === jse-examples
 
 NEED INFO 
