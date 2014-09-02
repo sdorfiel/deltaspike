@@ -76,7 +76,6 @@ When would a person use this template? (e.g., to add ... extension, view ... fun
 Where can the user get the template from? (e.g., GitHub link, filepath, etc.) https://github.com/os890/javaee_cdi_ejb_ds_project_template
 
 
-
 === JSF + EJB + CDI + DS (EE-Server)
 
 What is the template? (e.g., server implementation, which uses ..., etc.)
