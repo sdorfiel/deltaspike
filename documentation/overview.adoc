@@ -28,4 +28,4 @@ DeltaSpike has the following features:
 * an SPI allowing portable extensions to integrate cleanly with the container
 
 === Use Cases of DeltaSpike
-[need info]
+NEED INFO
