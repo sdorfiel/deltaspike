@@ -25,12 +25,14 @@ Download the DeltaSpike source distribution zip file from https://deltaspike.apa
 
 For WAR projects, copy the source files into the WEB-INF/lib directory of the project. 
 
-For EAR projects, copy the source files into the EAR/lib directory of the project and add <library-directory>lib</library-directory> to META-INF/application.xml.
-
+For EAR projects, copy the source files into the EAR/lib directory of the project. Add this code to the META-INF/application.xml file:
+----
+<library-directory>lib</library-directory>
+----
 
 == Adding a CDI Container
 VERIFY
-In a text editor, open the PROJECT_ROOT/pom.xml file. 
+In a text editor, open the pom.xml file of a project. 
 
 To add Apache OpenWebBeans, add this code to the list of dependencies:
 
