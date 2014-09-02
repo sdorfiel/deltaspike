@@ -1,7 +1,7 @@
 == Overview of DeltaSpike
-Apache DeltaSpike supports the development of portable Contexts and Dependency Injection (CDI) extensions that provide useful features for Java applications that are not provided out-of-the-box by the CDI specification (this includes security and JPA). CDI extensions created by the DeltaSpike community are packaged as modules.
+DeltaSpike is a collection of modules used to extend the capabilities of Java applications. It supports the development of portable Contexts and Dependency Injection (CDI) extensions that provide useful features for Java development that are not provided out-of-the-box by the CDI specification (this includes security and JPA). CDI extensions created by the DeltaSpike community are packaged as modules.
 
-Apache DeltaSpike is a toolbox for CDI.
+DeltaSpike is a toolbox for CDI.
 
 The goal of Apache DeltaSpike is to provide useful classes to:
 
@@ -14,8 +14,7 @@ The goal of Apache DeltaSpike is to provide useful classes to:
 Portable CDI extensions are mechanisms for injecting code into an existing CDI container, allowing for integration with different technologies. Extensions can be used with any spec-compliant CDI implementation. Drop CDI extension jar files into a runtime to integrate third party APIs with CDI or to improve existing JavaEE APIs. The portable CDI extension SPI (Service Provider Interface) allows the user to define additional beans, scopes, stereotypes, interceptors and decorators. 
 
 === About DeltaSpike
-DeltaSpike is a project consisting of a series of modules used for injecting additional features into Java applications. It provides a method of integrating custom and third party code to existing projects. Each module contains a set of CDI extensions created by the DeltaSpike community. Adding these modules extends 
-the Java capabilties of a project and allows for custom development.
+DeltaSpike is a project consisting of a series of modules used for injecting additional features into Java applications. It provides a method of integrating custom and third party code to existing projects. Each module contains a set of CDI extensions created by the DeltaSpike community. Adding these modules extends the Java capabilities of a project and allows for custom development.
 
 === Features of DeltaSpike
 DeltaSpike has the following features:
@@ -29,4 +28,4 @@ DeltaSpike has the following features:
 * an SPI allowing portable extensions to integrate cleanly with the container
 
 === Use Cases of DeltaSpike
-Add text
+[need info]
