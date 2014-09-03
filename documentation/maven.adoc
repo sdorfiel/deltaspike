@@ -1,0 +1,193 @@
+layout: basic
+title: Getting Started – Adding DeltaSpike to Maven Projects
+---
+:toc:
+toc::[]
+
+== Adding DeltaSpike to Maven Projects
+
+=== Configuring the Project pom.xml
+To add DeltaSpike capabilities to a project, you must declare it in the pom.xml file of a project.
+
+In a text editor, open the pom.xml file of your project.
+
+Scroll down to the list of properties and add this code to the bottom of the list, replacing deltaspike.version with your version of DeltaSpike:
+
+----
+<deltaspike.version>1.0.1</deltaspike.version>
+----
+
+=== Adding the Core Module Dependency
+In a text editor, open the pom.xml file of your project. 
+
+To add Apache OpenWebBeans, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.openwebbeans</groupId>
+    <artifactId>openwebbeans-impl</artifactId>
+    <version>${owb.version}</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.openwebbeans</groupId>
+    <artifactId>openwebbeans-spi</artifactId>
+    <version>${owb.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-owb</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add JBoss Weld, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-weld</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.jboss.weld.se</groupId>
+    <artifactId>weld-se</artifactId>
+    <version>${weld.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add an embedded servlet runtime, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-servlet</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+----
+
+Save the pom.xml file and exit.
+
+On the command line, navigate to the directory containing the pom.xml file. Type this command to download the new dependencies to the Maven repository:
+----
+mvn clean install
+----
+
+=== Testing Snapshots
+NEED INFO
+
+== Configuring Further when Using Java SE
+When using DeltaSpike with Java SE, additional jar files must be provided. These files correspond to the DeltaSpike CDI Controller API. The Controller uses Java Services to resolve the CDI container.
+
+=== Adding the Container Control Module and CDI Container Dependencies
+To add the  CDI container dependencies to the pom.xml file of your project, add this code to the dependencies list:
+
+----
+<properties>
+    <deltaspike.version>1.0.0</deltaspike.version>
+    <owb.version>1.2.0</owb.version>
+    <weld.version>1.1.9.Final</weld.version>
+</properties>
+----
+
+To add the DeltaSpike Container Ctrl API to the pom.xml file of your project, add this code to the dependencies list:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+----
+
+Save the pom.xml file and exit.
+
+On the command line, navigate to the directory containing the pom.xml file. Enter this command to download the new dependencies to the Maven repository:
+mvn clean install
+
+== Starting a CDI Container
+
+NEED INFO: How does the user call these methods?
+
+A CDI container is started by using DeltaSpike with Java SE. This provides a basis for defining the CDI scope and resolving the injected beans. 
+
+To bootstrap a CDI container in a Java application, the CdiContainer must be instantiated:
+NEED INFO: How is the CdiContainer instantiated? 
+
+Once this is completed, call the #boot method to scan CDI-enabled archives for beans and extensions:
+
+NEED INFO: How is this method invoked?
+
+----
+import org.apache.deltaspike.cdise.api.CdiContainer;
+import org.apache.deltaspike.cdise.api.CdiContainerLoader;
+
+public class MainApp {
+    public static void main(String[] args) {
+
+        CdiContainer cdiContainer = CdiContainerLoader.getCdiContainer();
+        cdiContainer.boot();
+
+        // You can use CDI here
+
+        cdiContainer.shutdown();
+    }
+}
+----
+
+After booting the container, a start method must be invoked. The following method uses the application-context example:
+
+NEED INFO: How is this method invoked?
+
+----
+import org.apache.deltaspike.cdise.api.CdiContainer;
+import org.apache.deltaspike.cdise.api.CdiContainerLoader;
+import org.apache.deltaspike.cdise.api.ContextControl;
+import javax.enterprise.context.ApplicationScoped;
+
+public class MainApp {
+    public static void main(String[] args) {
+
+        CdiContainer cdiContainer = CdiContainerLoader.getCdiContainer();
+        cdiContainer.boot();
+
+        // Starting the application-context allows to use @ApplicationScoped beans
+        ContextControl contextControl = cdiContainer.getContextControl();
+        contextControl.startContext(ApplicationScoped.class);
+
+        // You can use CDI here
+
+        cdiContainer.shutdown();
+    }
+}
+----
+
+DeltaSpike uses the BeanProvider implementation to resolve beans. The following method demonstrates how to resolve a bean without qualifiers:
+
+NEED INFO: How is this method invoked?
+ 
+----
+EchoService echoService = BeanProvider.getContextualReference(EchoService.class, false);
+----
+
+Where EchoService is an interface, the corresponding implementation is resolved. The resolved CDI bean may be used for all CDI concepts, such as the @Inject class. 
+
+To remove all beans from the application, call the #shutdown method.
+
+NEED INFO: How is this method invoked?
+
+=== Using DeltaSpike Features
+To learn more about the features of DeltaSpike, see the individual module pages and the examples and tutorials pages:
+
+Individual Module Pages
+
+
