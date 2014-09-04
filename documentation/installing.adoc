@@ -1,10 +1,17 @@
+== Installing and Configuring DeltaSpike
+
+
 == System Requirements
-Latest versions of Java EE and Java SE
-Arquillian CDI container
-Apache OpenWebBeans (OWB) or JBoss Weld reference implementations
+* Latest versions of Java EE and Java SE
+
+* Arquillian CDI container
+
+* Apache OpenWebBeans (OWB) or JBoss Weld reference implementations
 
 == Using DeltaSpike with Maven
+
 VERIFY
+
 Download the full DeltaSpike distribution zip file from https://deltaspike.apache.org/download.html and extract it.
 
 On the command line, navigate to the directory and type this command to build DeltaSpike with the JBoss Weld reference implementation:
@@ -18,14 +25,14 @@ mvn clean install -POWB
 ----
 
 == Using DeltaSpike without Maven
+
 VERIFY
-To use DeltaSpike without Maven you must obtain the source file.
 
-Download the DeltaSpike source distribution zip file from https://deltaspike.apache.org/download.html and extract it. The DeltaSpike source files must be added to the source code of a CDI project.
+Download the full DeltaSpike distribution zip file from https://deltaspike.apache.org/download.html and extract it. The DeltaSpike JAR files must be added to the source code of a CDI project.
 
-For WAR projects, copy the source files into the WEB-INF/lib directory of the project. 
+For WAR projects, copy the JAR files into the WEB-INF/lib directory of the project. 
 
-For EAR projects, copy the source files into the EAR/lib directory of the project. Add this code to the META-INF/application.xml file:
+For EAR projects, copy the JAR files into the EAR/lib directory of the project. Add this code to the META-INF/application.xml file:
 ----
 <library-directory>lib</library-directory>
 ----
