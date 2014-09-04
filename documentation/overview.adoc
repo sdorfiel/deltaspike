@@ -1,0 +1,76 @@
+---
+layout: basic
+title: Getting Started – Overview of DeltaSpike
+---
+:toc:
+toc::[]
+
+== Overview of DeltaSpike
+
+=== Background: Portable CDI Extensions
+Portable Contexts and Dependency Injection (CDI) extensions are mechanisms for injecting code into an existing CDI container, allowing for integration with different technologies. Extensions can be used with any spec-compliant CDI implementation. They are used to integrate third party APIs with CDI or to improve existing JavaEE APIs. The portable CDI extension SPI (Service Provider Interface) allows the user to define additional beans, scopes, stereotypes, interceptors and decorators.
+
+Portable CDI extensions contain Java code that determines the service they add to a process. Adding one of these extensions to a project injects beans into the classpath, adding different capabilities to it. For example, injections can be used to extend boot CDI containers for Java SE, stage projects, provide new scopes, and manage messages and configurations.
+
+Portable CDI extensions use containers such as Arquillian CDI to manage transactions. The container manages start and stop procedures, web beans, lifecycles, and injections. This means portable CDI extension injections can be handled by the container instead of the user needing to specify every action. 
+
+
+=== About DeltaSpike
+DeltaSpike is a collection of ready to use modules that provide extensions to the CDI capability of Java applications. CDI extensions created by the DeltaSpike community are packaged in the modules which are used for injecting additional features into Java applications. These modules contain useful features for Java development that are not provided out-of-the-box by the CDI specification of a project. This provides a method of integrating custom and third party code to existing projects. 
+
+DeltaSpike consists of a core module and several optional modules that are packaged as JAR files. These files are added to the classpath of a Java project. Users can inject modules for servlet objects, test control, security checks, and other features to extend the capabilities of a Java application. Injected objects can be customized and have interceptors associated to them.
+
+DeltaSpike uses CDI container integration provided by Arquillian for booting and controlling context lifecycles. Containers are activated by Maven, which utilizes the profiles JBoss Weld and OpenWebBeans. Activation occurs when a module is added to the runtime of a Java project.
+
+As well as the modules themselves, DeltaSpike provides a number of examples and project templates to help users understand the technologies in use. Users can develop their own CDI extensions using the SPI.
+
+=== Features of DeltaSpike
+DeltaSpike has the following features:
+
+==== Java EE 7 without Java EE 7
+
+* Transactional support for non-EJB beans
+
+* Injectable Servlet objects: For injecting CDI beans on servlets using Java EE 6/CDI 1.0 environments
+
+* Injectable resources: Configuration and resource bundles can be injected
+
+* @Exclude annotation: users can annotate beans which should be ignored by CDI even if they are in a CDI-enabled archive in a Java EE 6/CDI 1.0 environment 
+
+* Scheduling tasks: Async processes in a non Java EE 7 environment
+
+* Bean Validation integration: Allows to inject CDI beans and EJB in to Constraint-Validators
+
+* BeanProvider: Access the BeanManager and CDI beans even in non managed classes like JPA-2.0 EntityListeners or Spring Beans
+
+==== JSF Improvements
+
+* Multi-window handling: Manages logical windows for batches and separation of browser tabs
+
+* Type-safe view-config: Allows metadata to bind to views with a type-safe, flexible approach. It provides a more solid navigation in case of JSF and helps a lot in the maintenance phase.
+
+* View-Controller: Based on type-safe view-configs view-controller annotations. Provides a type-safe alternative to standard-tags.
+
+* Injection on Converters and Validators: Allows the user to inject CDI beans and EJB in to JSF Converters and Validators
+
+==== Productivity Improvements
+
+* Security based on annotations: The foundation for building a robust, capable and non-invasive security solution
+.
+
+* New CDI scopes: TransactionScoped, WindowScoped, ViewScoped, ViewAccess scope, and Grouped conversion scope
+
+* Container Control & Test Control: Java SE with CDI, all with a unifying API. Start, stop, and add classes to a running CDI container.
+
+* Data Module: An out-of-the-box entity framework solution complete with support for container or application managed persistence contexts, as well as JDBC.
+
+* Decoupled exception handling: Exception handling is done in one location similar to CDI Observers
+
+* JMX integration: Any CDI bean can be exposed using JMX with one annotation
+
+* Type-safe i18n messages: Localized messages can be used with an interface and a resource bundle, giving messages context within the code
+
+* Type-safe Project-Stages: Compared to project-stages in JSF, DeltaSpike provides a type-safe, but still extensible approach which can be used in CDI-based applications
+
+=== Use Cases of DeltaSpike
+NEED INFO
