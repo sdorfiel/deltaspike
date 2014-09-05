@@ -17,11 +17,9 @@ A series of modules is packaged with DeltaSpike consisting of a necessary core m
 === About DeltaSpike
 DeltaSpike is a collection of modules used to extend the capabilities of Java applications. It supports the development of portable CDI extensions which provide useful features for Java development that are not provided out-of-the-box by the CDI specification, such as security and JPA features. These capabilities can be added to projects that do not have CDI enabled, providing a method of connecting existing projects with new customization. CDI extensions created by the DeltaSpike community are packaged as modules that are used for injecting additional features into Java applications. This provides a method of integrating custom and third party code to existing projects. 
 
-DeltaSpike consists of a core module and several optional modules that can be added to the runtime of a project. Users can inject modules for servlet objects, test control, security checks, and other features to extend the capabilities of a Java application. These capabilities are added when a user inserts a module into the classpath of their project. Injected objects can be customized and have interceptors associated to them.
+Portable CDI extensions contain Java code that determines the service they add to a process. Adding one of these extensions to a project injects beans into the classpath, adding different capabilities to it. For example, injections can be used to extend boot CDI containers for Java SE, stage projects, provide new scopes, and manage messages and configurations.
 
-DeltaSpike uses CDI container integration provided by Arquillian for booting and controlling context lifecycles. Containers are activated by Maven, which utilizes the profiles JBoss Weld and OpenWebBeans. Activation occurs when a module is added to the runtime of a Java project.
-
-As well as the modules themselves, DeltaSpike provides a number of examples to help users understand the technologies in use. 
+Portable CDI extensions use containers such as Arquillian CDI to manage transactions. The container manages start and stop procedures, web beans, lifecycles, and injections. This means portable CDI extension injections can be handled by the container instead of the user needing to specify every action. 
 
 === Features of DeltaSpike
 DeltaSpike has the following features:
