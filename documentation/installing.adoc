@@ -1,12 +1,21 @@
+---
+layout: basic
+title: Getting Started – Installing and Configuring DeltaSpike
+---
+:toc:
+toc::[]
+
 == Installing and Configuring DeltaSpike
 
 
 == System Requirements
-* Latest versions of Java EE and Java SE
+* Latest versions of Java EE or Java SE
 
 * Arquillian CDI container
 
 * Apache OpenWebBeans (OWB) or JBoss Weld reference implementations
+
+* Working internet connection
 
 == Using DeltaSpike with Maven
 
@@ -14,15 +23,10 @@ VERIFY
 
 Download the full DeltaSpike distribution zip file from https://deltaspike.apache.org/download.html and extract it.
 
-On the command line, navigate to the directory and type this command to build DeltaSpike with the JBoss Weld reference implementation:
-----
-mvn clean install -PWeld
-----
+On the command line, navigate to the DeltaSpike directory and type this command:
+mvn clean install
 
-Alternatively, to build DeltaSpike with the OWB reference implementation, type this command:
-----
-mvn clean install -POWB
-----
+Maven downloads the DeltaSpike settings from Maven Central and resolves the dependencies.
 
 == Using DeltaSpike without Maven
 
