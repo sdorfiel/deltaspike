@@ -6,7 +6,7 @@ title: Getting Started – Installing and Configuring DeltaSpike
 toc::[]
 
 == Installing and Configuring DeltaSpike
-
+In order to install DeltaSpike, you need to have the following:
 
 == System Requirements
 * Latest versions of Java EE or Java SE
