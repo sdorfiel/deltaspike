@@ -18,7 +18,7 @@ Portable CDI extensions use containers such as Arquillian CDI to manage transact
 === About DeltaSpike
 DeltaSpike is a collection of ready to use modules that provide extensions to the CDI capability of Java applications. These modules are created by the community and provide a method of integrating custom and third party code to existing projects. 
 
-DeltaSpike consists of a core module and several optional modules that are packaged as JAR files. These files are added to the classpath of a Java project. Users can inject modules for servlet objects, test control, security checks, and other features to extend the capabilities of a Java application. Modules can be customized and have interceptors associated with them.
+DeltaSpike consists of a core module and several optional modules that are packaged as JAR files. These files are added to the classpath of a Java project. Each module contains Java code that enables different features. Users can inject modules for servlet objects, test control, security checks, and other features to extend the capabilities of a Java application. Modules can be customized and have interceptors associated with them.
 
 DeltaSpike uses CDI container integration provided by Arquillian for booting and controlling context lifecycles. Containers are activated by Maven, which utilizes the profiles of JBoss Weld and OpenWebBeans. Activation occurs when a module is added to the runtime of a Java project.
 
