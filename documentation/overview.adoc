@@ -35,7 +35,7 @@ DeltaSpike has the following features:
 
 * Injectable resources: Configuration and resource bundles can be injected.
 
-* @Exclude annotation: users can annotate beans which should be ignored by CDI even if they are in a CDI-enabled archive in a Java EE 6/CDI 1.0 environment.
+* @Exclude annotation: Users can annotate beans which should be ignored by CDI even if they are in a CDI-enabled archive in a Java EE 6/CDI 1.0 environment.
 
 * Scheduling tasks: Async processes in a non Java EE 7 environment.
 
