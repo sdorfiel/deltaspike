@@ -69,7 +69,7 @@ DeltaSpike has the following features:
 
 * Type-safe i18n messages: Localized messages can be used with an interface and a resource bundle, giving messages context within the code.
 
-* Type-safe Project-Stages: Compared to project-stages in JSF, DeltaSpike provides a type-safe, but still extensible approach which can be used in CDI-based applications.
+* Type-safe Project-Stages: DeltaSpike provides a type-safe, but still extensible approach which can be used in CDI-based applications.
 
 === Use Cases of DeltaSpike
 NEED INFO
