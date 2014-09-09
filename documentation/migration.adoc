@@ -1,3 +1,12 @@
+---
+layout: basic
+title: Getting Started – Migrating Projects to DeltaSpike
+---
+:toc:
+toc::[]
+
+== Migrating Projects to DeltaSpike
+
 == Apache MyFaces CODI to DeltaSpike
 Users of Apache MyFaces CODI can migrate their existing projects to DeltaSpike. This provides the projects with Seam capabilities, custom values for annotation attributes, and greater flexibility when using ConfiguredValueResolver.
 
