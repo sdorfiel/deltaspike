@@ -31,7 +31,7 @@ mvn clean install
 
 Maven downloads the DeltaSpike settings from Maven Central and resolves the dependencies.
 
-In a text editor, open the Maven settings.xml and scroll down to the list of URLs. Replace the placeholder <url> text with the path to the DeltaSpike directory. Save the file and exit. 
+In a text editor, open the Maven settings.xml file and scroll down to the list of URLs. Replace the placeholder <url> text with the path to the DeltaSpike directory. Save the file and exit. 
 
 == Using DeltaSpike without Maven
 
