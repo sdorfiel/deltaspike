@@ -1,3 +1,4 @@
+---
 layout: basic
 title: Getting Started – Adding DeltaSpike to Maven Projects
 ---
@@ -7,20 +8,256 @@ toc::[]
 == Adding DeltaSpike to Maven Projects
 
 === Configuring the Project pom.xml
-To add DeltaSpike capabilities to a project, you must declare it in the pom.xml file of a project.
+To add DeltaSpike capabilities to a project, you must declare it in the pom.xml file of the project.
 
 In a text editor, open the pom.xml file of your project.
 
-Scroll down to the list of properties and add this code to the bottom of the list, replacing deltaspike.version with your version of DeltaSpike:
+Add this code to the list of properties, replacing deltaspike.version with your version of DeltaSpike:
 
 ----
-<deltaspike.version>1.0.1</deltaspike.version>
+<properties>
+    <deltaspike.version>1.0.1</deltaspike.version>
+</properties>
+----
+
+Alternatively, to use the latest DeltaSpike snapshot, add this code to the list of properties:
+
+----
+<properties>
+    <deltaspike.version>1.0.2-SNAPSHOT</deltaspike.version>
+</properties>
 ----
 
 === Adding the Core Module Dependency
-In a text editor, open the pom.xml file of your project. 
+In a text editor, open the pom.xml file of your project.
 
-To add Apache OpenWebBeans, add this code to the list of dependencies:
+To add the core module of DeltaSpike, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.core</groupId>
+    <artifactId>deltaspike-core-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.core</groupId>
+    <artifactId>deltaspike-core-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+
+On the command line, navigate to the directory containing the pom.xml file. Type this command to download the new dependencies to the Maven repository:
+
+----
+mvn clean install
+----
+
+=== Adding the Option Module Dependencies
+In a text editor, open the pom.xml file of your project.
+
+To add the security module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-security-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-security-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the JPA module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-jpa-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-jpa-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the JSF module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-jsf-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-jsf-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+Alternatively, if you do not wish to see log entries during start up or when a deployment fails, use the impl-module. This is recommended for Java EE servers that cannot handle optional classes. To add the impl-module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-jsf-module-impl-ee6</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the bean validation module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-bean-validation-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the servlet module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-servlet-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-servlet-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the data module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-data-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-data-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the test-control module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-test-control-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-test-control-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+To add the scheduler module, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-scheduler-module-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.deltaspike.modules</groupId>
+    <artifactId>deltaspike-scheduler-module-impl</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>runtime</scope>
+</dependency>
+----
+
+On the command line, navigate to the directory containing the pom.xml file. Type this command to download the new dependencies to the Maven repository:
+
+----
+mvn clean install
+----
+
+=== Testing Snapshots
+To test Snapshot, open the Maven settings.xml file and add the Apache Snapshot-Repository to the list of repositories:
+
+----
+<repositories>
+    <repository>
+        <id>apache-snapshot-repository</id>
+        <url>http://repository.apache.org/snapshots/</url>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+----
+
+== Configuring Further when Using Java SE
+When using DeltaSpike with Java SE, additional JAR files must be provided. These files correspond to the DeltaSpike CDI Controller API. The Controller uses Java Services to resolve the CDI container.
+
+=== Adding the Container Control Module and CDI Container Dependencies
+
+To use DeltaSpike with Java SE, a CDI container must be configured. In a text editor, open the pom.xml file of your project and add this code to the list of properties:
+
+----
+<properties>
+    <deltaspike.version>1.0.0</deltaspike.version>
+    <owb.version>1.2.0</owb.version>
+    <weld.version>1.1.9.Final</weld.version>
+</properties>
+----
+
+To add the DeltaSpike container control API, add this code to the list of dependencies:
+
+----
+<dependency>
+    <groupId>org.apache.deltaspike.cdictrl</groupId>
+    <artifactId>deltaspike-cdictrl-api</artifactId>
+    <version>${deltaspike.version}</version>
+    <scope>compile</scope>
+</dependency>
+----
+
+To add the Apache OpenWebBeans container, add this code to the list of dependencies:
 
 ----
 <dependency>
@@ -45,7 +282,13 @@ To add Apache OpenWebBeans, add this code to the list of dependencies:
 </dependency>
 ----
 
-To add JBoss Weld, add this code to the list of dependencies:
+On the command line, navigate to the project directory and type this command to build the Apache OpenWebBeans container:
+----
+mvn clean install -POWB
+----
+
+
+To add JBoss Weld container, add this code to the list of dependencies:
 
 ----
 <dependency>
@@ -63,6 +306,11 @@ To add JBoss Weld, add this code to the list of dependencies:
 </dependency>
 ----
 
+On the command line, navigate to the project directory and type this command to build the JBoss Weld reference implementation:
+----
+mvn clean install -PWeld
+----
+
 To add an embedded servlet runtime, add this code to the list of dependencies:
 
 ----
@@ -76,51 +324,19 @@ To add an embedded servlet runtime, add this code to the list of dependencies:
 
 Save the pom.xml file and exit.
 
-On the command line, navigate to the directory containing the pom.xml file. Type this command to download the new dependencies to the Maven repository:
-----
-mvn clean install
-----
-
-=== Testing Snapshots
-NEED INFO
-
-== Configuring Further when Using Java SE
-When using DeltaSpike with Java SE, additional jar files must be provided. These files correspond to the DeltaSpike CDI Controller API. The Controller uses Java Services to resolve the CDI container.
-
-=== Adding the Container Control Module and CDI Container Dependencies
-To add the  CDI container dependencies to the pom.xml file of your project, add this code to the dependencies list:
-
-----
-<properties>
-    <deltaspike.version>1.0.0</deltaspike.version>
-    <owb.version>1.2.0</owb.version>
-    <weld.version>1.1.9.Final</weld.version>
-</properties>
-----
-
-To add the DeltaSpike Container Ctrl API to the pom.xml file of your project, add this code to the dependencies list:
-
-----
-<dependency>
-    <groupId>org.apache.deltaspike.cdictrl</groupId>
-    <artifactId>deltaspike-cdictrl-api</artifactId>
-    <version>${deltaspike.version}</version>
-    <scope>compile</scope>
-</dependency>
-----
-
-Save the pom.xml file and exit.
-
 On the command line, navigate to the directory containing the pom.xml file. Enter this command to download the new dependencies to the Maven repository:
+----
 mvn clean install
+----
 
-== Starting a CDI Container
+=== Starting a CDI Container
 
 NEED INFO: How does the user call these methods?
 
 A CDI container is started by using DeltaSpike with Java SE. This provides a basis for defining the CDI scope and resolving the injected beans. 
 
 To bootstrap a CDI container in a Java application, the CdiContainer must be instantiated:
+
 NEED INFO: How is the CdiContainer instantiated? 
 
 Once this is completed, call the #boot method to scan CDI-enabled archives for beans and extensions:
@@ -185,9 +401,8 @@ To remove all beans from the application, call the #shutdown method.
 
 NEED INFO: How is this method invoked?
 
-=== Using DeltaSpike Features
+== Using DeltaSpike Features
 To learn more about the features of DeltaSpike, see the individual module pages and the examples and tutorials pages:
 
 Individual Module Pages
-
 
